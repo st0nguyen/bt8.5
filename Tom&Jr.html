@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="tom&jerry_tom.png">
+    <p id="cat"></p> 
+    <button id='eat' onclick="eat()">eat</button> 
+    <img src="jr2.jpg" height="150" width="150" >
+    <p id="rat"></p>
+    <script>
+    class Rat {
+        constructor (name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+
+        sound (){
+            console.log ('chít chít');
+        }
+        getInfo(){
+            return `${this.name} ${this.weight} ${this.speed} ${this.status}`;
+        }
+    }
+    
+    class Cat {
+        constructor (name, weight, speed) {
+            this.name = name;
+            this.speed = speed;
+            this.weight = weight;
+        }
+
+        sound () {
+            console.log ('gâu gâu');
+        }
+        eatRat(rat) {
+            if (rat.status == true) {
+                this.weight ++;
+                rat.status = false;
+            }
+        }
+        catchRat(rat){
+            if (this.speed > rat.speed) {
+                eatRat();
+               
+                
+            }
+        }
+        getInfo(){
+            return `${this.name} ${this.weight} ${this.speed}`;
+        }
+    }
+
+    let tom = new Cat('tom',20,15);
+    let jr = new Rat('jerry',3,12,true);
+    let cat1 = document.getElementById('cat').innerHTML = tom.getInfo();
+    let rat1 = document.getElementById('rat').innerHTML = jr.getInfo();
+   function eat(){
+       tom.eatRat(jr);
+       let cat1 = document.getElementById('cat').innerHTML = tom.getInfo();
+    let rat1 = document.getElementById('rat').innerHTML = jr.getInfo();
+   }
+
+
+    
+    </script>
+</body>
+</html>
